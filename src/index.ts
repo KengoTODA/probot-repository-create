@@ -1,13 +1,13 @@
 import { Application } from 'probot' // eslint-disable-line no-unused-vars
 
 export = (app: Application) => {
-  app.on('issues.opened', async (context) => {
-    const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
-    await context.github.issues.createComment(issueComment)
+  app.on('repository.created', async (context) => {
+    const issue = context.issue({
+      title: 'Hello World!',
+      body: 'You created this GitHub repository so I am here to celebrate! :tada:'
+    })
+    setTimeout(async () => {
+      await context.github.issues.create(issue)
+    }, 3000) // or retry when issues.create fails
   })
-  // For more information on building apps:
-  // https://probot.github.io/docs/
-
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
 }

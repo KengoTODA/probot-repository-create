@@ -23,7 +23,7 @@ default_events:
 # - fork
 # - gollum
 # - issue_comment
-- issues
+# - issues
 # - label
 # - milestone
 # - member
@@ -40,7 +40,7 @@ default_events:
 # - pull_request_review_comment
 # - push
 # - release
-# - repository
+- repository
 # - repository_import
 # - status
 # - team
@@ -136,4 +136,4 @@ default_permissions:
 
 # Set to true when your GitHub App is available to the public or false when it is only accessible to the owner of the app.
 # Default: true
-# public: false
+public: false
